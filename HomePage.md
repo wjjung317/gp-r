@@ -1220,6 +1220,9 @@ PivotalR is available for download and installation from [CRAN](http://cran.r-pr
 
 # <a name="shiny_cf"/> Pushing Shiny Apps to Cloud Foundry
 
+## Overview
+
+In this guide, we will assume that the reader is familiar with the [Shiny](http://shiny.rstudio.com/) framework for building apps and dashboards.  We place our focus on helping you get started on hosting Shiny apps on Cloud Foundry.  Please keep in mind that the authors of this current page are data scientists, not application developers.  The instructions here are intended merely to help get you started, and readers are encouraged to consult other resources (i.e. [here](http://12factor.net/)) and ideally your [developer & designer buddies](http://pivotallabs.com) to improve and optimize.
 
 # Authors and Contributors
 * Woo Jung (@wjjung317)
