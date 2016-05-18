@@ -38,7 +38,7 @@ Topics covered
   * [Design & Features](#pivotalr_design)
   * [Demo](#pivotalr_demo)
   * [Download & Installation](#pivotalr_install)
-
+* [Pushing Shiny Apps to Cloud Foundry](#shiny_cf)
 
   
 # <a name="overview"/> Overview 
@@ -1208,6 +1208,9 @@ We have put together a [video demo](http://www.youtube.com/watch?v=6cmyRCMY6j0) 
 ## <a name="pivotalr_install"/> Download & Installation
 
 PivotalR is available for download and installation from [CRAN](http://cran.r-project.org/web/packages/PivotalR/) and its [GitHub Page](https://github.com/gopivotal/PivotalR).
+
+
+# <a name="shiny_cf"/> Pushing Shiny Apps to Cloud Foundry
 
 
 # Authors and Contributors
