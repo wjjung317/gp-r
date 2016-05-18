@@ -42,9 +42,11 @@ Topics covered
 
   
 # <a name="overview"/> Overview 
-In a traditional analytics workflow using R, data are loaded from a data source, modeled or visualized, and the model scoring results are pushed back to the data source. Such an approach works well when (i) the amount of data can be loaded into memory, and (ii) the transfer of large amounts of data is inexpensive and/or fast. Here we explore the situation involving large data sets where these two assumptions are violated. 
+In a traditional analytics workflow using R, data are loaded from a data source, modeled or visualized, and the model scoring results are pushed back to the data source. Such an approach works well when (i) the amount of data can be loaded into memory, and (ii) the transfer of large amounts of data is inexpensive and/or fast.  One of the major focus areas of this guide is to explore the situation involving large data sets where these two assumptions are violated. 
 
 [Greenplum Database (GPDB)](http://pivotal.io/big-data/pivotal-greenplum) and [Apache HAWQ](http://hawq.incubator.apache.org) offer several alternatives to interact with R using the in-database/in-Hadoop analytics paradigm. There are many ways to use R with these platforms. In this guide, we will outline the most common practices and provide code examples to help get you started.
+
+Regardless of the size of data, the "last mile" of operationalizing data-driven discoveries has traditionally often been an area of challenge.  With the advent of lightweight web frameworks for data scientists such as [Shiny](http://shiny.rstudio.com/) and highly automated hosting platforms such as [Cloud Foundry (CF)](https://www.cloudfoundry.org/), the effort involved in developing data-driven smart apps for end users has been reduced vastly.  In this document, we will also outline some guidelines to help you get started on pushing your Shiny apps to the cloud.  
 
 Official documentation can be found here:
 
@@ -59,10 +61,26 @@ Official documentation can be found here:
   * [Installation guide](http://hawq.docs.pivotal.io/docs-hawq/topics/HAWQInstallationandUpgrade.html)
   * [Administrator guide](http://hawq.docs.pivotal.io/docs-hawq/topics/HAWQAdministration.html)
   * [Github Repository](https://github.com/apache/incubator-hawq) 
+* Cloud Foundry
+  * [Product Page](https://www.cloudfoundry.org/)
+  * [Documentation](http://docs.cloudfoundry.org/)
+  * [Installing PCF-Dev (i.e. CF in a VM)](https://docs.pivotal.io/pcf-dev/)
+  * [Github Repository](https://github.com/cloudfoundry) 
+  * [R Buildpack](https://github.com/wjjung317/heroku-buildpack-r)
   
-Note that this Github page is intended as a guide for **practitioners** and **should not** be considered official documentation. The intention is to give pragmatic tips on how to use the GPDB and HAWQ with the R statistical programming environment.  
+Note that this Github page is intended as a guide for **practitioners** and **should not** be considered official documentation. The intention is to give pragmatic tips on how to use the GPDB, HAWQ, and Cloud Foundry with the R statistical programming environment.  
 
-## Getting Started with this Guide
+# <a name="plr"/> PL/R on Greenplum & HAWQ
+
+## <a name="plr_gettingstarted"/> Getting Started
+
+### <a name="plr_arch"/> PL/R Architecture
+
+![alt text](https://github.com/zimmeee/gp-r/blob/master/figures/PLR_GPDB_Architecture.png?raw=true "Distributed PL/R architecture on GPDB")
+
+PL/R provides a connection from the database to R -- which is running on every segment of the Greenplum instance -- to allow you to write procedural functions in R. In this setup R is not a client application that runs on the desktop like pgadmin. It runs on each segment of the server.
+
+### Datasets for Examples
 
 This guide contains code examples interspersed with explanations in natural language. You are encouraged to follow along with the examples, most of which will use the `abalone` [dataset](http://archive.ics.uci.edu/ml/datasets/Abalone) from the UC Irvine [Machine Learning Repository](http://archive.ics.uci.edu/ml/index.html).
 
@@ -90,16 +108,6 @@ user# select count(*) from abalone;
   4177
 (1 row)
 ```
-
-# <a name="plr"/> PL/R on Greenplum & HAWQ
-
-## <a name="plr_gettingstarted"/> Getting Started
-
-### <a name="plr_arch"/> PL/R Architecture
-
-![alt text](https://github.com/zimmeee/gp-r/blob/master/figures/PLR_GPDB_Architecture.png?raw=true "Distributed PL/R architecture on GPDB")
-
-PL/R provides a connection from the database to R -- which is running on every segment of the Greenplum instance -- to allow you to write procedural functions in R. In this setup R is not a client application that runs on the desktop like pgadmin. It runs on each segment of the server.
 
 ### <a name="installation"/> Installation
 
