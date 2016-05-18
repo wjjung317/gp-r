@@ -38,7 +38,7 @@ Topics covered
   * [Design & Features](#pivotalr_design)
   * [Demo](#pivotalr_demo)
   * [Download & Installation](#pivotalr_install)
-* [Pushing Shiny Apps to Cloud Foundry](#shiny_cf)
+* [Shiny Apps on Cloud Foundry](#shiny_cf)
 
   
 # <a name="overview"/> Overview 
@@ -1218,11 +1218,18 @@ We have put together a [video demo](http://www.youtube.com/watch?v=6cmyRCMY6j0) 
 PivotalR is available for download and installation from [CRAN](http://cran.r-project.org/web/packages/PivotalR/) and its [GitHub Page](https://github.com/gopivotal/PivotalR).
 
 
-# <a name="shiny_cf"/> Pushing Shiny Apps to Cloud Foundry
+# <a name="shiny_cf"/> Shiny Apps on Cloud Foundry
 
 ## Overview
 
-In this guide, we will assume that the reader is familiar with the [Shiny](http://shiny.rstudio.com/) framework for building apps and dashboards.  We place our focus on helping you get started on hosting Shiny apps on Cloud Foundry.  Please keep in mind that the authors of this current page are data scientists, not application developers.  The instructions here are intended merely to help get you started, and readers are encouraged to consult other resources (i.e. [here](http://12factor.net/)) and ideally your [developer & designer buddies](http://pivotallabs.com) to improve and optimize.
+In this guide, we will assume that the reader is familiar with the [Shiny](http://shiny.rstudio.com/) framework for building apps and dashboards.  Background on Shiny and those who need a refresher are encouraged to look [here](http://shiny.rstudio.com/tutorial/).  
+
+We place our focus on helping you get started on hosting Shiny apps on Cloud Foundry.  Please keep in mind that the authors of this current page are data scientists, not application developers.  The instructions here are intended merely to help get you started -- readers are encouraged to consult other resources (i.e. [here](http://12factor.net/)) and ideally your [developer & designer](http://pivotallabs.com) buddies to improve and optimize.
+
+## Bare Mininum Requirements for Hosting Shiny Apps on CF
+* CF environment
+* Compatible R buildpack
+* Shiny Code
 
 # Authors and Contributors
 * Woo Jung (@wjjung317)
