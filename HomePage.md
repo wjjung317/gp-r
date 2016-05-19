@@ -1231,6 +1231,14 @@ We place our focus on helping you get started on hosting Shiny apps on Cloud Fou
 * Compatible R buildpack
 * Shiny Code
 
+### CF environment
+* Set API endpoint 
+* Login with your login/password
+
+### Compatible R buildpack
+* A buildpack 
+
+
 # Authors and Contributors
 * Woo Jung (@wjjung317)
 * Srivatsan 'Vatsan' Ramanujam (@vatsan)
