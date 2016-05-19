@@ -1218,7 +1218,7 @@ We have put together a [video demo](http://www.youtube.com/watch?v=6cmyRCMY6j0) 
 PivotalR is available for download and installation from [CRAN](http://cran.r-project.org/web/packages/PivotalR/) and its [GitHub Page](https://github.com/gopivotal/PivotalR).
 
 
-# <a name="shiny_cf"/> Shiny Apps on Cloud Foundry
+# <a name="shiny_cf"/> Shiny Apps on Cloud Foundry [Work in Progress]
 
 ## Overview
 
@@ -1228,16 +1228,36 @@ We place our focus on helping you get started on hosting Shiny apps on Cloud Fou
 
 ## Bare Mininum Requirements for Hosting Shiny Apps on CF
 * CF environment
-* Compatible R buildpack
+* R buildpack
 * Shiny Code
+* init.R file
+* manifest.yml file 
 
 ### CF environment
 * Set API endpoint 
 * Login with your login/password
 
-### Compatible R buildpack
-* A buildpack 
+### R buildpack
+* https://github.com/wjjung317/heroku-buildpack-r
+[more details to be filled out]
 
+### Shiny Code
+[more details to be filled out]
+
+### init.R file
+[more details to be filled out]
+
+### manifest.yml file
+[more details to be filled out]
+
+## Steps to push your shiny app to CF [more details to be filled out]
+1.  Make sure your shiny app works on your laptop
+2.  Call out required R libraries and other initialization settings in your init.R file
+3.  Reference your shiny app's runApp() R script in the manifest.yml file
+
+## Common mistakes to avoid
+* Don't assume that the latest version of buildpacks are good to go and when you push a new app or update an existing one -- you may need to mess around with the buildpack compile script.  After some trial-and-error, I needed to revert to an older version of the R buildpack as the latest version had a compatibility bug with one of the dependent libraries of Shiny.
+* When referring to file names in scripts that are used in your app, keep in mind case sensitivity of file names and file extensions.  
 
 # Authors and Contributors
 * Woo Jung (@wjjung317)
